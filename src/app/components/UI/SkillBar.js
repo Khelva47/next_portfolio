@@ -12,8 +12,10 @@ const SkillBar = ({ skill, index }) => {
             width: `${skill.percentage}%`,
             animationDelay: `${index * 100}ms`
           }}
-        ></div>
+        />
       </div>
     </div>
   );
 };
+
+export default SkillBar;
