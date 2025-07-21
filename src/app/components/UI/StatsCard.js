@@ -8,3 +8,5 @@ const StatsCard = ({ stat }) => {
     </div>
   );
 };
+
+export default StatsCard;
