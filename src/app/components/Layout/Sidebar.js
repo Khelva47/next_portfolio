@@ -61,15 +61,9 @@ const Sidebar = ({ activeSection, setActiveSection, profileData, navigationItems
             </button>
           );
         })}
-        
-        {/* Dropdown Example */}
-        <div className="relative">
-          <button className="w-full flex items-center justify-between px-4 py-3 text-gray-300 hover:bg-gray-800 rounded-lg">
-            <span>Dropdown</span>
-            <ChevronDown className="w-4 h-4" />
-          </button>
-        </div>
       </nav>
     </div>
   );
 };
+
+export default Sidebar;
