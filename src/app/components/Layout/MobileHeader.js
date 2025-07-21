@@ -15,3 +15,4 @@ const MobileHeader = ({ isMobileMenuOpen, setIsMobileMenuOpen, title = "iPortfol
     </div>
   );
 };
+export default MobileHeader;
