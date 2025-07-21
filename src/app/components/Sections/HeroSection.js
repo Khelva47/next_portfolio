@@ -8,7 +8,7 @@ const HeroSection = ({ heroData }) => {
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50" />
       <div className="relative z-10 text-center">
         <h1 className="text-5xl font-bold mb-4">{heroData.name}</h1>
         <p className="text-xl">{heroData.tagline}</p>
@@ -16,3 +16,5 @@ const HeroSection = ({ heroData }) => {
     </div>
   );
 };
+
+export default HeroSection;
