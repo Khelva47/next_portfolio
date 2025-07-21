@@ -1,69 +1,85 @@
-import { 
-  Home, 
-  User, 
-  FileText, 
-  Briefcase, 
-  Settings, 
-  ChevronDown, 
-  Mail,
-  Twitter,
-  Facebook,
-  Instagram,
-  MessageSquare,
-  Linkedin
-} from 'lucide-react';
+"use client"
 
-const Sidebar = ({ activeSection, setActiveSection, profileData, navigationItems }) => {
+import { Sun, Moon, X } from "lucide-react"
+
+const Sidebar = ({
+  activeSection,
+  setActiveSection,
+  profileData,
+  navigationItems,
+  isDarkMode,
+  setIsDarkMode,
+  isMobileMenuOpen,
+  setIsMobileMenuOpen,
+  scrollToSection,
+}) => {
   return (
-    <div className="fixed left-0 top-0 h-full w-72 bg-gray-900 text-white p-6 z-50 overflow-y-auto">
+    <div
+      className={`fixed left-0 top-0 h-full w-72 bg-gray-900 dark:bg-gray-800 text-white z-50 transform transition-transform duration-300 ${
+        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+      } lg:translate-x-0`}
+    >
+      {/* Close button for mobile */}
+      <button onClick={() => setIsMobileMenuOpen(false)} className="lg:hidden absolute top-4 right-4 text-white p-2">
+        <X className="w-6 h-6" />
+      </button>
+
+      {/* Dark mode toggle for desktop */}
+      <button
+        onClick={() => setIsDarkMode(!isDarkMode)}
+        className="hidden lg:block absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-700 transition-colors"
+      >
+        {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      </button>
+
       {/* Profile Section */}
-      <div className="text-center mb-8">
+      <div className="text-center p-6 border-b border-gray-700 dark:border-gray-600">
         <img
-          src={profileData.image}
+          src={profileData.image || "/placeholder.svg"}
           alt={profileData.name}
-          className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+          className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-gray-600 dark:border-gray-500"
         />
-        <h2 className="text-2xl font-bold text-white">{profileData.name}</h2>
-        <div className="flex justify-center space-x-3 mt-4">
+        <h2 className="text-xl font-bold text-white mb-4">{profileData.name}</h2>
+        <div className="flex justify-center space-x-3">
           {profileData.socialLinks.map((social, index) => {
-            const IconComponent = social.icon;
+            const IconComponent = social.icon
             return (
               <a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white cursor-pointer transition-colors"
+                className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-600 transition-colors"
               >
-                <IconComponent className="w-5 h-5" />
+                <IconComponent className="w-4 h-4" />
               </a>
-            );
+            )
           })}
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="space-y-2">
+      <nav className="p-4">
         {navigationItems.map((item) => {
-          const IconComponent = item.icon;
+          const IconComponent = item.icon
           return (
             <button
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+              onClick={() => scrollToSection(item.id)}
+              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors mb-2 ${
                 activeSection === item.id
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-300 hover:bg-gray-800'
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-300 hover:bg-gray-800 dark:hover:bg-gray-700"
               }`}
             >
               <IconComponent className="w-5 h-5" />
               <span>{item.label}</span>
             </button>
-          );
+          )
         })}
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar
