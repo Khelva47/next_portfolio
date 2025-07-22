@@ -16,7 +16,7 @@ import {
   Star,
 } from "lucide-react"
 
-import { useScrollSpy } from "@/hooks/useScrollSpy"
+import { useScrollSpy } from "../hooks/useScrollSpy"
 import Sidebar from "./Layout/Sidebar"
 import MobileHeader from "./Layout/MobileHeader"
 import HeroSection from "./Sections/HeroSection"
