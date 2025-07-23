@@ -33,14 +33,14 @@ const Portfolio = () => {
 
   // Add this after the useState declarations and before useEffect
   useEffect(() => {
-    // Check for saved theme preference or default to light mode
+    // Always start with light mode, only switch to dark if explicitly saved as dark
     const savedTheme = localStorage.getItem("theme")
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+    if (savedTheme === "dark") {
       setIsDarkMode(true)
     } else {
       setIsDarkMode(false)
+      // Ensure dark class is removed on initial load
+      document.documentElement.classList.remove("dark")
     }
   }, [])
 
@@ -226,8 +226,8 @@ const Portfolio = () => {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? "dark" : ""}`}>
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <div className="min-h-screen transition-colors duration-300">
+      <div className={`min-h-screen bg-white text-gray-900 ${isDarkMode ? "dark bg-gray-900 text-white" : ""}`}>
         {/* Mobile Header */}
         <MobileHeader
           isMobileMenuOpen={isMobileMenuOpen}
