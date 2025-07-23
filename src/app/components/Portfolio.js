@@ -63,8 +63,8 @@ const Portfolio = () => {
 
   // Data
   const profileData = {
-    name: "Alex Smith",
-    title: "Photographer",
+    name: "Kelvin Mponda",
+    title: "Full-Stack Developer",
     image: "/images/profile.jpg",
     socialLinks: [
       { icon: Twitter, url: "https://twitter.com" },
@@ -88,18 +88,17 @@ const Portfolio = () => {
   const aboutData = {
     description:
       "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
-    title: "UI/UX Designer & Web Developer.",
+    title: "Full-Stack Developer & Educator",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/profile.jpg",
     details: [
-      { label: "Birthday", value: "1 May 1995" },
+      { label: "Birthday", value: "15 August 2000" },
       { label: "Website", value: "www.example.com" },
-      { label: "Phone", value: "+123 456 7890" },
-      { label: "City", value: "New York, USA" },
-      { label: "Age", value: "30" },
-      { label: "Degree", value: "Master" },
-      { label: "Email", value: "email@example.com" },
+      { label: "Phone", value: "+265 994 679 974" },
+      { label: "City", value: "Zomba, Malawi" },
+      { label: "Age", value: "25" },
+      { label: "Email", value: "kelvinmponda47@gmail.com" },
       { label: "Freelance", value: "Available" },
     ],
     additionalInfo:
@@ -114,11 +113,11 @@ const Portfolio = () => {
   ]
 
   const skillsData = [
-    { name: "HTML", percentage: 100 },
-    { name: "CSS", percentage: 90 },
-    { name: "JAVASCRIPT", percentage: 75 },
-    { name: "PHP", percentage: 80 },
-    { name: "WORDPRESS/CMS", percentage: 90 },
+    { name: "PYTHON", percentage: 100 },
+    { name: "JAVASCRIPT", percentage: 90 },
+    { name: "FLUTTER", percentage: 75 },
+    { name: "TYPESCRIPT", percentage: 80 },
+    { name: "WORDPRESS", percentage: 90 },
     { name: "PHOTOSHOP", percentage: 55 },
   ]
 
