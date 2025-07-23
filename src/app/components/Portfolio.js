@@ -8,8 +8,8 @@ import {
   Briefcase,
   Settings,
   Mail,
-  Twitter,
   Facebook,
+  Github,
   Instagram,
   MessageSquare,
   Linkedin,
@@ -67,10 +67,8 @@ const Portfolio = () => {
     title: "Full-Stack Developer",
     image: "/images/profile.jpg",
     socialLinks: [
-      { icon: Twitter, url: "https://twitter.com" },
+      { icon: Github, url: "https://githubcom" },
       { icon: Facebook, url: "https://facebook.com" },
-      { icon: Instagram, url: "https://instagram.com" },
-      { icon: MessageSquare, url: "https://t.me" },
       { icon: Linkedin, url: "https://linkedin.com" },
     ],
   }
