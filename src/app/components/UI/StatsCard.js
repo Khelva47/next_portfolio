@@ -1,6 +1,6 @@
 "use client"
 
-import { useCountUp } from "@/hooks/useCountUp"
+import { useCountUp } from "../../hooks/useCountUp"
 
 const StatCard = ({ stat, shouldAnimate, index }) => {
   const count = useCountUp(stat.number, 2000, shouldAnimate)
