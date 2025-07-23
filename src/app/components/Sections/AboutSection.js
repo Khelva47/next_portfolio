@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
-import StatCard from "../UI/StatCard"
+import StatCard from "../UI/StatsCard"
 import SkillBar from "../UI/SkillBar"
 
 const AboutSection = ({ aboutData, statsData, skillsData }) => {
