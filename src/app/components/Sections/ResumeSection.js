@@ -1,6 +1,6 @@
 const ResumeSection = ({ resumeData }) => {
   return (
-    <section id="resume" className="py-20 px-8 bg-gray-50 dark:bg-gray-800">
+    <section id="resume" className="py-20 px-8 bg-gray-50 text-gray-900 dark:bg-gray-800 dark:text-white">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <h2 className="text-4xl font-bold mb-4">Resume</h2>
