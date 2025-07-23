@@ -8,8 +8,8 @@ import {
   Briefcase,
   Settings,
   Mail,
+  Twitter,
   Facebook,
-  Github,
   Instagram,
   MessageSquare,
   Linkedin,
@@ -31,16 +31,31 @@ const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(false)
 
+  // Add this after the useState declarations and before useEffect
+  useEffect(() => {
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem("theme")
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true)
+    } else {
+      setIsDarkMode(false)
+    }
+  }, [])
+
   // Section IDs for scroll spy
   const sectionIds = ["home", "about", "resume", "portfolio", "services", "testimonials", "contact"]
   const activeSection = useScrollSpy(sectionIds, 100)
 
-  // Dark mode toggle
+  // Update the existing dark mode useEffect to also save to localStorage:
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark")
+      localStorage.setItem("theme", "dark")
     } else {
       document.documentElement.classList.remove("dark")
+      localStorage.setItem("theme", "light")
     }
   }, [isDarkMode])
 
@@ -63,12 +78,14 @@ const Portfolio = () => {
 
   // Data
   const profileData = {
-    name: "Kelvin Mponda",
-    title: "Full-Stack Developer",
+    name: "Alex Smith",
+    title: "Photographer",
     image: "/images/profile.jpg",
     socialLinks: [
-      { icon: Github, url: "https://githubcom" },
+      { icon: Twitter, url: "https://twitter.com" },
       { icon: Facebook, url: "https://facebook.com" },
+      { icon: Instagram, url: "https://instagram.com" },
+      { icon: MessageSquare, url: "https://t.me" },
       { icon: Linkedin, url: "https://linkedin.com" },
     ],
   }
@@ -86,17 +103,18 @@ const Portfolio = () => {
   const aboutData = {
     description:
       "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
-    title: "Full-Stack Developer & Educator",
+    title: "UI/UX Designer & Web Developer.",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/profile.jpg",
     details: [
-      { label: "Birthday", value: "15 August 2000" },
+      { label: "Birthday", value: "1 May 1995" },
       { label: "Website", value: "www.example.com" },
-      { label: "Phone", value: "+265 994 679 974" },
-      { label: "City", value: "Zomba, Malawi" },
-      { label: "Age", value: "25" },
-      { label: "Email", value: "kelvinmponda47@gmail.com" },
+      { label: "Phone", value: "+123 456 7890" },
+      { label: "City", value: "New York, USA" },
+      { label: "Age", value: "30" },
+      { label: "Degree", value: "Master" },
+      { label: "Email", value: "email@example.com" },
       { label: "Freelance", value: "Available" },
     ],
     additionalInfo:
@@ -111,11 +129,11 @@ const Portfolio = () => {
   ]
 
   const skillsData = [
-    { name: "PYTHON", percentage: 100 },
-    { name: "JAVASCRIPT", percentage: 90 },
-    { name: "FLUTTER", percentage: 75 },
-    { name: "TYPESCRIPT", percentage: 80 },
-    { name: "WORDPRESS", percentage: 90 },
+    { name: "HTML", percentage: 100 },
+    { name: "CSS", percentage: 90 },
+    { name: "JAVASCRIPT", percentage: 75 },
+    { name: "PHP", percentage: 80 },
+    { name: "WORDPRESS/CMS", percentage: 90 },
     { name: "PHOTOSHOP", percentage: 55 },
   ]
 
