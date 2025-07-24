@@ -1,20 +1,25 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-
+  
   body {
     font-family: "Inter", sans-serif;
   }
-
-  /* Force light mode as default */
-  * {
+  
+  /* FIX: Ensure light mode is default */
+  :root {
     color-scheme: light;
   }
-
-  .dark * {
+  
+  /* FIX: Only apply dark color scheme when dark class is present */
+  .dark {
     color-scheme: dark;
   }
 }
@@ -78,7 +83,7 @@
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - FIX: Better light/dark mode handling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -87,6 +92,7 @@
   background: #f1f1f1;
 }
 
+/* Only apply dark scrollbar in dark mode */
 .dark ::-webkit-scrollbar-track {
   background: #374151;
 }
@@ -100,9 +106,10 @@
   background: #2563eb;
 }
 
-/* Smooth transitions for all elements */
-* {
-  transition: all 0.3s ease;
+/* FIX: Remove universal transition that might cause issues */
+/* Smooth transitions for specific elements only */
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 /* Hero section parallax effect */
@@ -114,11 +121,6 @@
   #home {
     background-attachment: scroll;
   }
-}
-
-/* Dark mode transitions */
-.dark {
-  color-scheme: dark;
 }
 
 /* Skill bar animations - runs only once */

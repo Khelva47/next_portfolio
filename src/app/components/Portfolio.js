@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import {
   Home,
@@ -8,14 +7,13 @@ import {
   Briefcase,
   Settings,
   Mail,
-  Twitter,
   Facebook,
+  Github,
   Instagram,
   MessageSquare,
   Linkedin,
   Star,
 } from "lucide-react"
-
 import { useScrollSpy } from "../hooks/useScrollSpy"
 import Sidebar from "./Layout/Sidebar"
 import MobileHeader from "./Layout/MobileHeader"
@@ -29,33 +27,34 @@ import ContactSection from "./Sections/ContactSection"
 
 const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  // FIX 1: Initialize dark mode as false explicitly and check localStorage safely
   const [isDarkMode, setIsDarkMode] = useState(false)
-
-  // Add this after the useState declarations and before useEffect
-  useEffect(() => {
-    // Always start with light mode, only switch to dark if explicitly saved as dark
-    const savedTheme = localStorage.getItem("theme")
-    if (savedTheme === "dark") {
-      setIsDarkMode(true)
-    } else {
-      setIsDarkMode(false)
-      // Ensure dark class is removed on initial load
-      document.documentElement.classList.remove("dark")
-    }
-  }, [])
-
+  
   // Section IDs for scroll spy
   const sectionIds = ["home", "about", "resume", "portfolio", "services", "testimonials", "contact"]
   const activeSection = useScrollSpy(sectionIds, 100)
 
-  // Update the existing dark mode useEffect to also save to localStorage:
+  // FIX 2: Improved dark mode initialization and toggle
   useEffect(() => {
+    // Check localStorage only on client side
+    const savedTheme = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
+    // Only set dark mode if explicitly saved as 'dark' in localStorage
+    const shouldBeDark = savedTheme === 'dark' || (savedTheme === null && prefersDark)
+    setIsDarkMode(shouldBeDark)
+  }, [])
+
+  // FIX 3: Better dark mode class management
+  useEffect(() => {
+    const htmlElement = document.documentElement
+    
     if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-      localStorage.setItem("theme", "dark")
+      htmlElement.classList.add("dark")
+      localStorage.setItem('theme', 'dark')
     } else {
-      document.documentElement.classList.remove("dark")
-      localStorage.setItem("theme", "light")
+      htmlElement.classList.remove("dark")
+      localStorage.setItem('theme', 'light')
     }
   }, [isDarkMode])
 
@@ -66,26 +65,22 @@ const Portfolio = () => {
       const headerOffset = window.innerWidth >= 1024 ? 0 : 80
       const elementPosition = element.offsetTop
       const offsetPosition = elementPosition - headerOffset
-
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       })
-
       setIsMobileMenuOpen(false)
     }
   }
 
   // Data
   const profileData = {
-    name: "Alex Smith",
-    title: "Photographer",
+    name: "Kelvin Mponda",
+    title: "Full-Stack Developer",
     image: "/images/profile.jpg",
     socialLinks: [
-      { icon: Twitter, url: "https://twitter.com" },
+      { icon: Github, url: "https://githubcom" },
       { icon: Facebook, url: "https://facebook.com" },
-      { icon: Instagram, url: "https://instagram.com" },
-      { icon: MessageSquare, url: "https://t.me" },
       { icon: Linkedin, url: "https://linkedin.com" },
     ],
   }
@@ -103,18 +98,17 @@ const Portfolio = () => {
   const aboutData = {
     description:
       "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
-    title: "UI/UX Designer & Web Developer.",
+    title: "Full-Stack Developer & Educator",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/profile.jpg",
     details: [
-      { label: "Birthday", value: "1 May 1995" },
+      { label: "Birthday", value: "15 August 2000" },
       { label: "Website", value: "www.example.com" },
-      { label: "Phone", value: "+123 456 7890" },
-      { label: "City", value: "New York, USA" },
-      { label: "Age", value: "30" },
-      { label: "Degree", value: "Master" },
-      { label: "Email", value: "email@example.com" },
+      { label: "Phone", value: "+265 994 679 974" },
+      { label: "City", value: "Zomba, Malawi" },
+      { label: "Age", value: "25" },
+      { label: "Email", value: "kelvinmponda47@gmail.com" },
       { label: "Freelance", value: "Available" },
     ],
     additionalInfo:
@@ -129,11 +123,11 @@ const Portfolio = () => {
   ]
 
   const skillsData = [
-    { name: "HTML", percentage: 100 },
-    { name: "CSS", percentage: 90 },
-    { name: "JAVASCRIPT", percentage: 75 },
-    { name: "PHP", percentage: 80 },
-    { name: "WORDPRESS/CMS", percentage: 90 },
+    { name: "PYTHON", percentage: 100 },
+    { name: "JAVASCRIPT", percentage: 90 },
+    { name: "FLUTTER", percentage: 75 },
+    { name: "TYPESCRIPT", percentage: 80 },
+    { name: "WORDPRESS", percentage: 90 },
     { name: "PHOTOSHOP", percentage: 55 },
   ]
 
@@ -226,47 +220,46 @@ const Portfolio = () => {
   }
 
   return (
-    <div className="min-h-screen transition-colors duration-300">
-      <div className={`min-h-screen bg-white text-gray-900 ${isDarkMode ? "dark bg-gray-900 text-white" : ""}`}>
-        {/* Mobile Header */}
-        <MobileHeader
-          isMobileMenuOpen={isMobileMenuOpen}
-          setIsMobileMenuOpen={setIsMobileMenuOpen}
-          isDarkMode={isDarkMode}
-          setIsDarkMode={setIsDarkMode}
+    // FIX 4: Remove the conditional dark class application from the outer div
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+      {/* Mobile Header */}
+      <MobileHeader
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+      />
+
+      {/* Sidebar */}
+      <Sidebar
+        activeSection={activeSection}
+        setActiveSection={scrollToSection}
+        profileData={profileData}
+        navigationItems={navigationItems}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        scrollToSection={scrollToSection}
+      />
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
         />
+      )}
 
-        {/* Sidebar */}
-        <Sidebar
-          activeSection={activeSection}
-          setActiveSection={scrollToSection}
-          profileData={profileData}
-          navigationItems={navigationItems}
-          isDarkMode={isDarkMode}
-          setIsDarkMode={setIsDarkMode}
-          isMobileMenuOpen={isMobileMenuOpen}
-          setIsMobileMenuOpen={setIsMobileMenuOpen}
-          scrollToSection={scrollToSection}
-        />
-
-        {/* Mobile Overlay */}
-        {isMobileMenuOpen && (
-          <div
-            className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
-
-        {/* Main Content */}
-        <div className="lg:ml-72 pt-16 lg:pt-0">
-          <HeroSection profileData={profileData} />
-          <AboutSection aboutData={aboutData} statsData={statsData} skillsData={skillsData} />
-          <ResumeSection resumeData={resumeData} />
-          <PortfolioSection />
-          <ServicesSection />
-          <TestimonialsSection testimonialsData={testimonialsData} />
-          <ContactSection />
-        </div>
+      {/* Main Content */}
+      <div className="lg:ml-72 pt-16 lg:pt-0">
+        <HeroSection profileData={profileData} />
+        <AboutSection aboutData={aboutData} statsData={statsData} skillsData={skillsData} />
+        <ResumeSection resumeData={resumeData} />
+        <PortfolioSection />
+        <ServicesSection />
+        <TestimonialsSection testimonialsData={testimonialsData} />
+        <ContactSection />
       </div>
     </div>
   )
