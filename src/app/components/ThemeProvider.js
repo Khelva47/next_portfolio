@@ -1,8 +1,8 @@
 "use client"
-import Portfolio from "./components/Portfolio"
+
 import { useState, useEffect } from "react"
 
-export default function Home() {
+export default function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   useEffect(() => {
@@ -14,11 +14,14 @@ export default function Home() {
       htmlElement.classList.remove("dark")
       localStorage.setItem("theme", "light")
     }
+    // Check localStorage on mount
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme === "dark") setIsDarkMode(true)
   }, [isDarkMode])
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-      <Portfolio isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+    <div className={`min-h-screen ${isDarkMode ? "dark" : ""}`}>
+      {children}
     </div>
   )
 }

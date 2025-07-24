@@ -1,5 +1,4 @@
 "use client"
-import { useState, useEffect } from "react"
 import {
   Home,
   User,
@@ -24,43 +23,14 @@ import PortfolioSection from "./Sections/PortfolioSection"
 import ServicesSection from "./Sections/ServicesSection"
 import TestimonialsSection from "./Sections/TestimonialsSection"
 import ContactSection from "./Sections/ContactSection"
+import { useState } from "react"
 
-const Portfolio = () => {
+const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  // FIX 1: Initialize dark mode as false explicitly and check localStorage safely
-  const [isDarkMode, setIsDarkMode] = useState(false)
   
-  // Section IDs for scroll spy
   const sectionIds = ["home", "about", "resume", "portfolio", "services", "testimonials", "contact"]
   const activeSection = useScrollSpy(sectionIds, 100)
 
-  // FIX 2: Improved dark mode initialization and toggle
-  useEffect(() => {
-  const root = document.documentElement
-  if (isDarkMode) {
-    root.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    root.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
-  }
-}, [isDarkMode])
-
-
-  // FIX 3: Better dark mode class management
-  useEffect(() => {
-    const htmlElement = document.documentElement
-    
-    if (isDarkMode) {
-      htmlElement.classList.add("dark")
-      localStorage.setItem('theme', 'dark')
-    } else {
-      htmlElement.classList.remove("dark")
-      localStorage.setItem('theme', 'light')
-    }
-  }, [isDarkMode])
-
-  // Simple smooth scroll to section
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -75,7 +45,6 @@ const Portfolio = () => {
     }
   }
 
-  // Data
   const profileData = {
     name: "Kelvin Mponda",
     title: "Full-Stack Developer",
@@ -176,7 +145,7 @@ const Portfolio = () => {
     summary: {
       name: "BRANDON JOHNSON",
       title:
-        "Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.",
+        "Innovative and deadline-driven Graphic Developer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.",
       contact: ["Portland par 127,Orlando, FL", "(123) 456-7891", "alice.barkley@example.com"],
     },
     education: [
@@ -222,9 +191,7 @@ const Portfolio = () => {
   }
 
   return (
-    // FIX 4: Remove the conditional dark class application from the outer div
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-      {/* Mobile Header */}
       <MobileHeader
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
@@ -232,7 +199,6 @@ const Portfolio = () => {
         setIsDarkMode={setIsDarkMode}
       />
 
-      {/* Sidebar */}
       <Sidebar
         activeSection={activeSection}
         setActiveSection={scrollToSection}
@@ -245,7 +211,6 @@ const Portfolio = () => {
         scrollToSection={scrollToSection}
       />
 
-      {/* Mobile Overlay */}
       {isMobileMenuOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
@@ -253,7 +218,6 @@ const Portfolio = () => {
         />
       )}
 
-      {/* Main Content */}
       <div className="lg:ml-72 pt-16 lg:pt-0">
         <HeroSection profileData={profileData} />
         <AboutSection aboutData={aboutData} statsData={statsData} skillsData={skillsData} />

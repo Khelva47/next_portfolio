@@ -5,23 +5,24 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    color-scheme: light;
-  }
-
-  .dark {
-    color-scheme: dark;
-  }
-
   html {
     scroll-behavior: smooth;
+    @apply bg-white text-black; /* Force light mode as base */
   }
-
+  
   body {
     font-family: "Inter", sans-serif;
   }
+  
+  :root {
+    color-scheme: light;
+  }
+  
+  .dark {
+    color-scheme: dark;
+    @apply bg-gray-900 text-white;
+  }
 }
-
 
 @layer components {
   .animate-fade-in {
@@ -36,7 +37,6 @@
     animation: slideUp 0.6s ease-out forwards;
   }
 
-  /* Typewriter effect */
   .typewriter-text {
     display: inline-block;
   }
@@ -82,7 +82,6 @@
   }
 }
 
-/* Custom scrollbar - FIX: Better light/dark mode handling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -91,7 +90,6 @@
   background: #f1f1f1;
 }
 
-/* Only apply dark scrollbar in dark mode */
 .dark ::-webkit-scrollbar-track {
   background: #374151;
 }
@@ -105,13 +103,10 @@
   background: #2563eb;
 }
 
-/* FIX: Remove universal transition that might cause issues */
-/* Smooth transitions for specific elements only */
 .transition-colors {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hero section parallax effect */
 #home {
   background-attachment: fixed;
 }
@@ -122,7 +117,6 @@
   }
 }
 
-/* Skill bar animations - runs only once */
 .skill-bar {
   position: relative;
   overflow: hidden;
@@ -148,7 +142,6 @@
   }
 }
 
-/* Testimonial card animations */
 .testimonial-card {
   animation: slideIn 0.5s ease-in-out;
 }
@@ -164,7 +157,6 @@
   }
 }
 
-/* Modern scroll animations */
 .section-animate {
   opacity: 0;
   transform: translateY(50px);
@@ -176,7 +168,6 @@
   transform: translateY(0);
 }
 
-/* Staggered animations for portfolio items */
 .portfolio-item {
   opacity: 0;
   transform: translateY(30px);
@@ -188,7 +179,6 @@
   transform: translateY(0);
 }
 
-/* Service cards staggered animation */
 .service-card {
   opacity: 0;
   transform: translateY(30px);
@@ -200,7 +190,6 @@
   transform: translateY(0);
 }
 
-/* Enhanced hover effects */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -210,7 +199,6 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Smooth page transitions */
 .page-transition {
   opacity: 0;
   transform: translateY(20px);
@@ -224,7 +212,6 @@
   }
 }
 
-/* Loading animation for skill bars */
 @keyframes skillLoad {
   from {
     width: 0%;
@@ -234,7 +221,6 @@
   }
 }
 
-/* Pulse animation for active navigation */
 .nav-active {
   position: relative;
 }
