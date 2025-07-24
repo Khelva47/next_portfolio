@@ -5,24 +5,23 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: "Inter", sans-serif;
-  }
-  
-  /* FIX: Ensure light mode is default */
   :root {
     color-scheme: light;
   }
-  
-  /* FIX: Only apply dark color scheme when dark class is present */
+
   .dark {
     color-scheme: dark;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+  }
 }
+
 
 @layer components {
   .animate-fade-in {

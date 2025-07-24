@@ -36,14 +36,16 @@ const Portfolio = () => {
 
   // FIX 2: Improved dark mode initialization and toggle
   useEffect(() => {
-    // Check localStorage only on client side
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    // Only set dark mode if explicitly saved as 'dark' in localStorage
-    const shouldBeDark = savedTheme === 'dark' || (savedTheme === null && prefersDark)
-    setIsDarkMode(shouldBeDark)
-  }, [])
+  const root = document.documentElement
+  if (isDarkMode) {
+    root.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    root.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
+  }
+}, [isDarkMode])
+
 
   // FIX 3: Better dark mode class management
   useEffect(() => {
