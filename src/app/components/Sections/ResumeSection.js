@@ -13,22 +13,10 @@ const ResumeSection = ({ resumeData }) => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Summary */}
+        
           <div>
-            <h3 className="text-2xl font-bold mb-6">Summary</h3>
-            <div className="relative pl-8 border-l-2 border-blue-500">
-              <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-500 rounded-full"></div>
-              <h4 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-2">{resumeData.summary.name}</h4>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 italic">{resumeData.summary.title}</p>
-              <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                {resumeData.summary.contact.map((item, index) => (
-                  <li key={index}>• {item}</li>
-                ))}
-              </ul>
-            </div>
-
             {/* Education */}
-            <h3 className="text-2xl font-bold mb-6 mt-12">Education</h3>
+            <h3 className="text-2xl font-bold mb-6">Education</h3>
             <div className="space-y-8">
               {resumeData.education.map((edu, index) => (
                 <div key={index} className="relative pl-8 border-l-2 border-blue-500">

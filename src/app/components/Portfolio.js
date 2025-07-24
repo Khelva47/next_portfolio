@@ -142,12 +142,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   ]
 
   const resumeData = {
-    summary: {
-      name: "BRANDON JOHNSON",
-      title:
-        "Innovative and deadline-driven Graphic Developer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.",
-      contact: ["Portland par 127,Orlando, FL", "(123) 456-7891", "alice.barkley@example.com"],
-    },
+    
     education: [
       {
         degree: "MASTER OF FINE ARTS & GRAPHIC DESIGN",
