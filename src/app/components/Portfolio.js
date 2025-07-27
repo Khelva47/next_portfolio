@@ -154,27 +154,44 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     ],
     experience: [
       {
-        title: "SENIOR GRAPHIC DESIGN SPECIALIST",
-        period: "2019 - Present",
-        company: "Experion, New York, NY",
+        title: "WEBSITE DEVELOPER (PART-TIME)",
+        period: "2025 - Present",
+        company: "BOMA Group, USA",
         responsibilities: [
-          "Lead in the design, development, and implementation of the graphic, layout, and production communication materials",
-          "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.",
-          "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design",
-          "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000",
+          "Develop and maintain websites for the Boma Prize for Africa and Boma Consult.",
+          "Enhance user experience through responsive design and performance optimization.",
+
         ],
       },
       {
-        title: "GRAPHIC DESIGN SPECIALIST",
-        period: "2017 - 2018",
-        company: "Stepping Stone Advertising, New York, NY",
+        title: "SOFTWARE ENGINEER",
+        period: "2025 - Present",
+        company: "iTech360, Zomba",
         responsibilities: [
-          "Developed numerous marketing programs (logos, brochures, infographics, presentations, and advertisements).",
-          "Managed up to 5 projects or tasks at a given time while under pressure",
-          "Recommended and consulted with clients on the most appropriate graphic design",
-          "Created 4+ design presentations and proposals a month for clients and account managers",
+          "Develop and maintain websites for the Boma Prize for Africa and Boma Consult.",
+          "Enhance user experience through responsive design and performance optimization.",
         ],
       },
+      {
+        title: "FULL-STACK DEVELOPER (INTERN)",
+        period: "2023 - 2025",
+        company: "Gusher Labs, Blantyre",
+        responsibilities: [
+          "Designed and managed databases and RESTful APIs.",
+          "Develop user interfaces and implement frontend features using modern frameworks.",
+          "Collaborate with cross-functional teams to deliver scalable software solutions.",
+        ],
+      },
+      {
+    title: "TEACHER (VOLUNTEER)",
+    period: "2023",
+    company: "Malindi Secondary School, Zomba",
+    responsibilities: [
+      "Prepared and delivered Computer Studies lessons to secondary school students.",
+      "Developed schemes of work and assessed student performance and behavior.",
+      "Reported academic progress and classroom activities to the school principal.",
+    ],
+  },
     ],
   }
 
