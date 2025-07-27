@@ -68,10 +68,10 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
 
   const aboutData = {
     description:
-      "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+      "I’m a developer and educator who loves turning ideas into apps. From coding with Nextjs and Flutter to teaching and learning, I’m all about impact and growth.",
     title: "Full-Stack Developer & Educator",
     subtitle:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Building meaningful digital experiences through code, creativity, and a passion for education.",
     image: "/images/profile.jpg",
     details: [
       { label: "Birthday", value: "15 August 2000" },
@@ -83,7 +83,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       { label: "Freelance", value: "Available" },
     ],
     additionalInfo:
-      "Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.",
+      "",
   }
 
   const statsData = [
