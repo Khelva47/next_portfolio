@@ -6,9 +6,7 @@ const ResumeSection = ({ resumeData }) => {
           <h2 className="text-4xl font-bold mb-4">Resume</h2>
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.
+            I'm a dedicated Full-Stack Developer and Educator with a passion for building scalable applications and sharing knowledge. With experience in both the classroom and the tech industry, I’ve contributed to real-world projects across web and mobile platforms. My journey blends hands-on coding with a strong foundation in education, aiming to create impactful digital solutions for diverse communities.
           </p>
         </div>
 

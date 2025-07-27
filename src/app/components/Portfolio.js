@@ -96,10 +96,10 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   const skillsData = [
     { name: "PYTHON", percentage: 100 },
     { name: "JAVASCRIPT", percentage: 90 },
-    { name: "FLUTTER", percentage: 75 },
-    { name: "TYPESCRIPT", percentage: 80 },
-    { name: "WORDPRESS", percentage: 90 },
-    { name: "PHOTOSHOP", percentage: 55 },
+    { name: "FLUTTER", percentage: 85 },
+    { name: "TYPESCRIPT", percentage: 75 },
+    { name: "WORDPRESS", percentage: 95 },
+    { name: "PHOTOSHOP", percentage: 75 },
   ]
 
   const testimonialsData = [
@@ -145,18 +145,11 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     
     education: [
       {
-        degree: "MASTER OF FINE ARTS & GRAPHIC DESIGN",
-        period: "2015 - 2016",
-        institution: "Rochester Institute of Technology, Rochester, NY",
+        degree: "BACHELOR OF EDUCATION, COMPUTER SCIENCE",
+        period: "2021 - Present",
+        institution: "University of Malawi, Chancellor College",
         description:
-          "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
-      },
-      {
-        degree: "BACHELOR OF FINE ARTS & GRAPHIC DESIGN",
-        period: "2010 - 2014",
-        institution: "Rochester Institute of Technology, Rochester, NY",
-        description:
-          "Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila",
+          "Currently pursuing a degree in Computer Science Education with a strong focus on software development, programming, and teaching methodologies. This program has equipped me with both technical and pedagogical skills, enabling me to build real-world applications and contribute meaningfully as an educator and developer.",
       },
     ],
     experience: [
