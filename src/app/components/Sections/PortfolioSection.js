@@ -65,9 +65,7 @@ const PortfolioSection = () => {
           <h2 className="text-4xl font-bold mb-4">Portfolio</h2>
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.
+              Explore a collection of projects that showcase my journey as a full-stack developer and educator. From intuitive mobile and web apps, to robust backend systems, these works highlight my commitment to solving real-world problems through clean code, thoughtful design, and scalable architectures.
           </p>
         </div>
 
