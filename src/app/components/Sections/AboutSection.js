@@ -66,7 +66,7 @@ const AboutSection = ({ aboutData, statsData, skillsData }) => {
           <h3 className="text-3xl font-bold mb-4">Skills</h3>
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 mb-8">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+            Focused on clean architecture, performance, and modern development workflows.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             {skillsData.map((skill, index) => (
