@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
 import StatCard from "../UI/StatsCard"
@@ -13,6 +12,7 @@ const AboutSection = ({ aboutData, statsData, skillsData }) => {
     const timer = setTimeout(() => {
       setAnimationsStarted(true)
     }, 500)
+
     return () => clearTimeout(timer)
   }, [])
 
@@ -28,20 +28,18 @@ const AboutSection = ({ aboutData, statsData, skillsData }) => {
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div>
             <img
-              src={aboutData.image || "/placeholder.svg"}
+              src={aboutData.image || "/placeholder.svg?height=400&width=400&text=Profile"}
               alt="About"
               className="w-full h-96 object-cover rounded-lg shadow-lg"
             />
           </div>
-
           <div>
             <h3 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-400">{aboutData.title}</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 italic">{aboutData.subtitle}</p>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               {aboutData.details.map((detail, index) => (
-                <div key={index} className="flex">
-                  <ChevronDown className="w-5 h-5 text-blue-500 mr-2 rotate-[-90deg]" />
+                <div key={index} className="flex items-start">
+                  <ChevronDown className="w-5 h-5 text-blue-500 mr-2 rotate-[-90deg] flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800 dark:text-gray-200">{detail.label}:</strong>
                     <span className="text-gray-600 dark:text-gray-300 ml-2">{detail.value}</span>
@@ -49,7 +47,6 @@ const AboutSection = ({ aboutData, statsData, skillsData }) => {
                 </div>
               ))}
             </div>
-
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{aboutData.additionalInfo}</p>
           </div>
         </div>
