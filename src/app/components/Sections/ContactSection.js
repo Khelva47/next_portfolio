@@ -8,9 +8,10 @@ const ContactSection = () => {
           <h2 className="text-4xl font-bold mb-4">Contact</h2>
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+               Whether you're looking to build a custom web or mobile solution, need technical guidance on your digital project, or simply want to collaborate on innovative tech ideas — I’m here to help. Feel free to reach out, and let’s create something impactful together.
+            </p>
+
           </p>
         </div>
 
