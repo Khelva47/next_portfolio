@@ -167,10 +167,11 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       {
         title: "SOFTWARE ENGINEER",
         period: "2025 - Present",
-        company: "iTech360, Zomba",
+        company: "iTech360Systems, Zomba",
         responsibilities: [
-          "Develop and maintain websites for the Boma Prize for Africa and Boma Consult.",
-          "Enhance user experience through responsive design and performance optimization.",
+          "Database designing, maintainance and optimazition",
+          "Developing UIs and implement frontend features using modern frameworks.",
+          "Collaborating with collegues to deliver scalable software solutions.",
         ],
       },
       {
