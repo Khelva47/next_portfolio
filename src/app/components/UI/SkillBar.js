@@ -1,31 +1,29 @@
 "use client"
-
 import { useState, useEffect } from "react"
 
 const SkillBar = ({ skill, index, shouldAnimate }) => {
-  const [width, setWidth] = useState(0)
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const [animatedWidth, setAnimatedWidth] = useState(0)
 
   useEffect(() => {
-    if (shouldAnimate && !hasAnimated) {
-      setHasAnimated(true)
+    if (shouldAnimate) {
       const timer = setTimeout(() => {
-        setWidth(skill.percentage)
-      }, index * 200)
+        setAnimatedWidth(skill.percentage)
+      }, index * 100)
+
       return () => clearTimeout(timer)
     }
-  }, [shouldAnimate, skill.percentage, index, hasAnimated])
+  }, [shouldAnimate, skill.percentage, index])
 
   return (
     <div className="mb-6">
       <div className="flex justify-between mb-2">
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
-        <span className="text-sm text-gray-500 dark:text-gray-400">{skill.percentage}%</span>
+        <span className="text-gray-800 dark:text-white font-medium">{skill.name}</span>
+        <span className="text-blue-500">{skill.percentage}%</span>
       </div>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
         <div
-          className="bg-blue-500 dark:bg-blue-400 h-3 rounded-full transition-all duration-1000 ease-out skill-bar"
-          style={{ width: `${width}%` }}
+          className="bg-blue-500 h-2 rounded-full transition-all duration-1000 ease-out"
+          style={{ width: shouldAnimate ? `${animatedWidth}%` : `${skill.percentage}%` }}
         />
       </div>
     </div>
