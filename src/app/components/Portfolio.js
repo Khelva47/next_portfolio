@@ -61,10 +61,8 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     image: "/images/profile.jpg",
     details: [
       { label: "Birthday", value: "15 August 2000" },
-      { label: "Website", value: "www.example.com" },
       { label: "Phone", value: "+265 994 679 974" },
       { label: "City", value: "Zomba, Malawi" },
-      { label: "Age", value: "25" },
       { label: "Email", value: "kelvinmponda47@gmail.com" },
       { label: "Freelance", value: "Available" },
     ],
@@ -73,27 +71,27 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
 
   const statsData = [
     {
-      number: 232,
+      number: 20,
       label: "Happy Clients",
-      sublabel: "consequuntur quae",
+      sublabel: "Web & mobile solutions delivered",
       icon: "user-check",
     },
     {
-      number: 521,
+      number: 10,
       label: "Projects",
-      sublabel: "adipisci atque cum quia aut",
+      sublabel: "Across startups & NGOs",
       icon: "folder-open",
     },
     {
-      number: 1453,
-      label: "Hours Of Support",
-      sublabel: "aut commodi quaerat",
+      number: 1000,
+      label: "Hours of Experience",
+      sublabel: "Coding, consulting & mentoring",
       icon: "headphones",
     },
     {
-      number: 32,
-      label: "Hard Workers",
-      sublabel: "rerum asperiores dolor",
+      number: 6,
+      label: "Collaborators",
+      sublabel: "Developers, designers & mentors",
       icon: "users",
     },
   ]
@@ -102,7 +100,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     { name: "PYTHON", percentage: 100 },
     { name: "JAVASCRIPT", percentage: 90 },
     { name: "FLUTTER", percentage: 85 },
-    { name: "TYPESCRIPT", percentage: 75 },
+    { name: "TYPESCRIPT", percentage: 80 },
     { name: "WORDPRESS", percentage: 95 },
     { name: "PHOTOSHOP", percentage: 75 },
   ]
