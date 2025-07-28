@@ -1,18 +1,5 @@
 "use client"
-import {
-  Home,
-  User,
-  FileText,
-  Briefcase,
-  Settings,
-  Mail,
-  Facebook,
-  Github,
-  Instagram,
-  MessageSquare,
-  Linkedin,
-  Star,
-} from "lucide-react"
+import { Home, User, FileText, Briefcase, Settings, Mail, Facebook, Github, Linkedin, Star } from "lucide-react"
 import { useScrollSpy } from "../hooks/useScrollSpy"
 import Sidebar from "./Layout/Sidebar"
 import MobileHeader from "./Layout/MobileHeader"
@@ -27,7 +14,7 @@ import { useState } from "react"
 
 const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  
+
   const sectionIds = ["home", "about", "resume", "portfolio", "services", "testimonials", "contact"]
   const activeSection = useScrollSpy(sectionIds, 100)
 
@@ -68,10 +55,9 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
 
   const aboutData = {
     description:
-      "I’m a developer and educator who loves turning ideas into apps. From coding with Nextjs and Flutter to teaching and learning, I’m all about impact and growth.",
+      "I'm a developer and educator who loves turning ideas into apps. From coding with Nextjs and Flutter to teaching and learning, I'm all about impact and growth.",
     title: "Full-Stack Developer & Educator",
-    subtitle:
-      "Building meaningful digital experiences through code, creativity, and a passion for education.",
+    subtitle: "Building meaningful digital experiences through code, creativity, and a passion for education.",
     image: "/images/profile.jpg",
     details: [
       { label: "Birthday", value: "15 August 2000" },
@@ -82,15 +68,34 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       { label: "Email", value: "kelvinmponda47@gmail.com" },
       { label: "Freelance", value: "Available" },
     ],
-    additionalInfo:
-      "",
+    additionalInfo: "",
   }
 
   const statsData = [
-    { number: 232, label: "Happy Clients", sublabel: "consequuntur quae", icon: "😊" },
-    { number: 521, label: "Projects", sublabel: "adipisci atque cum quia aut", icon: "📋" },
-    { number: 1453, label: "Hours Of Support", sublabel: "aut commodi quaerat", icon: "🎧" },
-    { number: 32, label: "Hard Workers", sublabel: "rerum asperiores dolor", icon: "👥" },
+    {
+      number: 232,
+      label: "Happy Clients",
+      sublabel: "consequuntur quae",
+      icon: "user-check",
+    },
+    {
+      number: 521,
+      label: "Projects",
+      sublabel: "adipisci atque cum quia aut",
+      icon: "folder-open",
+    },
+    {
+      number: 1453,
+      label: "Hours Of Support",
+      sublabel: "aut commodi quaerat",
+      icon: "headphones",
+    },
+    {
+      number: 32,
+      label: "Hard Workers",
+      sublabel: "rerum asperiores dolor",
+      icon: "users",
+    },
   ]
 
   const skillsData = [
@@ -142,7 +147,6 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   ]
 
   const resumeData = {
-    
     education: [
       {
         degree: "BACHELOR OF EDUCATION, COMPUTER SCIENCE",
@@ -160,7 +164,6 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
         responsibilities: [
           "Develop and maintain websites for the Boma Prize for Africa and Boma Consult.",
           "Enhance user experience through responsive design and performance optimization.",
-
         ],
       },
       {
@@ -183,15 +186,15 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
         ],
       },
       {
-    title: "TEACHER (VOLUNTEER)",
-    period: "2023",
-    company: "Malindi Secondary School, Zomba",
-    responsibilities: [
-      "Prepared and delivered Computer Studies lessons to secondary school students.",
-      "Developed schemes of work and assessed student performance and behavior.",
-      "Reported academic progress and classroom activities to the school principal.",
-    ],
-  },
+        title: "TEACHER (VOLUNTEER)",
+        period: "2023",
+        company: "Malindi Secondary School, Zomba",
+        responsibilities: [
+          "Prepared and delivered Computer Studies lessons to secondary school students.",
+          "Developed schemes of work and assessed student performance and behavior.",
+          "Reported academic progress and classroom activities to the school principal.",
+        ],
+      },
     ],
   }
 
@@ -203,7 +206,6 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
         isDarkMode={isDarkMode}
         setIsDarkMode={setIsDarkMode}
       />
-
       <Sidebar
         activeSection={activeSection}
         setActiveSection={scrollToSection}
@@ -215,14 +217,12 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         scrollToSection={scrollToSection}
       />
-
       {isMobileMenuOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-
       <div className="lg:ml-72 pt-16 lg:pt-0">
         <HeroSection profileData={profileData} />
         <AboutSection aboutData={aboutData} statsData={statsData} skillsData={skillsData} />
