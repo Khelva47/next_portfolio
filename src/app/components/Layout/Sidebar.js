@@ -27,7 +27,7 @@ const Sidebar = ({
       {/* Profile Section */}
       <div className="text-center p-6 border-b border-gray-300 dark:border-gray-700">
         <img
-          src={profileData.image || "/placeholder.svg"}
+          src={profileData.image || "/images/Myphoto.jpg"}
           alt={profileData.name}
           className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-gray-300 dark:border-gray-600"
         />

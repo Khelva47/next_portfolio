@@ -35,9 +35,9 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   const profileData = {
     name: "Kelvin Mponda",
     title: "Full-Stack Developer",
-    image: "/images/profile.jpg",
+    image: "/images/IMG-20250318-WA0007.jpg",
     socialLinks: [
-      { icon: Github, url: "https://githubcom" },
+      { icon: Github, url: "https://github.com/Khelva47" },
       { icon: Facebook, url: "https://facebook.com" },
       { icon: Linkedin, url: "https://linkedin.com" },
     ],
@@ -58,7 +58,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       "I'm a developer and educator who loves turning ideas into apps. From coding with Nextjs and Flutter to teaching and learning, I'm all about impact and growth.",
     title: "Full-Stack Developer & Educator",
     subtitle: "Building meaningful digital experiences through code, creativity, and a passion for education.",
-    image: "/images/profile.jpg",
+    image: "/images/Myphoto.jpg",
     details: [
       { label: "Birthday", value: "15 August 2000" },
       { label: "Phone", value: "+265 994 679 974" },

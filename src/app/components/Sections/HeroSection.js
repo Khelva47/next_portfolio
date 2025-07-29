@@ -3,7 +3,7 @@
 import { useTypewriter } from "../../hooks/useTypewriter"
 
 const HeroSection = ({ profileData }) => {
-  const roles = ["a Full-Stack Developer", "a Designer", "an Educator", "a Data Scientist", "an Entreprenuer"]
+  const roles = ["a Full-Stack Developer", "a Designer", "an Educator", "a Data Scientist", "a Python Developer"]
   const typedText = useTypewriter(roles, 150, 100, 2000)
 
   return (
@@ -11,7 +11,7 @@ const HeroSection = ({ profileData }) => {
       id="home"
       className="h-screen flex items-center justify-center text-white relative"
       style={{
-        backgroundImage: `url(/images/hero-bg.jpg)`,
+        backgroundImage: `url(/images/IMG-20250318-WA0007.jpg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
