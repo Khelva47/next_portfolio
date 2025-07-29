@@ -10,13 +10,36 @@ import PortfolioSection from "./Sections/PortfolioSection"
 import ServicesSection from "./Sections/ServicesSection"
 import TestimonialsSection from "./Sections/TestimonialsSection"
 import ContactSection from "./Sections/ContactSection"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
+const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
   const sectionIds = ["home", "about", "resume", "portfolio", "services", "testimonials", "contact"]
   const activeSection = useScrollSpy(sectionIds, 100)
+
+useEffect(() => {
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme === "dark") {
+      setIsDarkMode(true)
+      document.documentElement.classList.add("dark")
+    } else {
+      setIsDarkMode(false)
+      document.documentElement.classList.remove("dark")
+    }
+  }, [])
+
+  // Handle dark mode changes
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark")
+      localStorage.setItem("theme", "dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+      localStorage.setItem("theme", "light")
+    }
+  }, [isDarkMode])
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
