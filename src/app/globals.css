@@ -7,7 +7,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply bg-white text-black; /* Force light mode as base */
+    @apply bg-white text-black; 
   }
   
   body {

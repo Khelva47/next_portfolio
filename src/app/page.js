@@ -5,14 +5,26 @@ import { useState, useEffect } from "react"
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
+  // Initialize dark mode from localStorage on component mount
   useEffect(() => {
-    const htmlElement = document.documentElement
-    if (isDarkMode) {
-      htmlElement.classList.add("dark")
-      localStorage.setItem("theme", "dark")
-    } else {
-      htmlElement.classList.remove("dark")
-      localStorage.setItem("theme", "light")
+    const savedTheme = typeof window !== 'undefined' ? localStorage.getItem("theme") : null
+    const prefersDark = typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)').matches : false
+    
+    const shouldBeDark = savedTheme === "dark" || (savedTheme === null && prefersDark)
+    setIsDarkMode(shouldBeDark)
+  }, [])
+
+  // Handle dark mode changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const htmlElement = document.documentElement
+      if (isDarkMode) {
+        htmlElement.classList.add("dark")
+        localStorage.setItem("theme", "dark")
+      } else {
+        htmlElement.classList.remove("dark")
+        localStorage.setItem("theme", "light")
+      }
     }
   }, [isDarkMode])
 
