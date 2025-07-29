@@ -35,7 +35,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   const profileData = {
     name: "Kelvin Mponda",
     title: "Full-Stack Developer",
-    image: "/images/IMG-20250318-WA0007.jpg",
+    image: "/images/Myphoto.jpg",
     socialLinks: [
       { icon: Github, url: "https://github.com/Khelva47" },
       { icon: Facebook, url: "https://facebook.com" },

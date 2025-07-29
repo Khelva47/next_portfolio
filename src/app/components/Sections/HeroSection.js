@@ -1,5 +1,4 @@
 "use client"
-
 import { useTypewriter } from "../../hooks/useTypewriter"
 
 const HeroSection = ({ profileData }) => {
@@ -11,7 +10,7 @@ const HeroSection = ({ profileData }) => {
       id="home"
       className="h-screen flex items-center justify-center text-white relative"
       style={{
-        backgroundImage: `url(/images/IMG-20250318-WA0007.jpg)`,
+        backgroundImage: `url(/images/25854.jpg)`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
