@@ -1,6 +1,10 @@
 "use client"
-import { Mail, Phone } from "lucide-react"
-import { useState } from "react"
+
+import { Mail, Phone, CheckCircle2, XCircle, Loader2 } from "lucide-react"
+import { useState, useEffect, useCallback } from "react"
+import { validateField, isFormValid } from "../../utils/validation"
+import axios from "axios"
+import ModalNotification from "../UI/ModalNotification"
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -9,88 +13,79 @@ const ContactSection = () => {
     subject: "",
     message: "",
   })
-
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
+  const [emailValidationStatus, setEmailValidationStatus] = useState("idle") // 'idle', 'validating', 'valid', 'invalid'
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [csrfToken, setCsrfToken] = useState("")
+  const [notification, setNotification] = useState(null) // { message: string, type: 'success' | 'error' }
 
-  // Email validation regex
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  // Fetch CSRF token on mount
+  useEffect(() => {
+    fetch("/api/csrf-token")
+      .then((res) => res.json())
+      .then((data) => setCsrfToken(data.csrfToken))
+      .catch((err) => console.error("Failed to fetch CSRF token:", err))
+  }, [])
 
-  // Validation functions
-  const validateField = (name, value) => {
-    switch (name) {
-      case "name":
-        return value.trim() === "" ? "Name is required" : ""
-      case "email":
-        if (value.trim() === "") return "Email is required"
-        if (!emailRegex.test(value)) return "Please enter a valid email address"
-        return ""
-      case "subject":
-        return value.trim() === "" ? "Subject is required" : ""
-      case "message":
-        return value.trim() === "" ? "Message is required" : ""
-      default:
-        return ""
-    }
-  }
+  // Debounced email validation for real-time feedback
+  const validateEmailRealtime = useCallback(
+    (emailValue) => {
+      if (emailValue.trim() === "") {
+        setEmailValidationStatus("idle")
+        setErrors((prev) => ({ ...prev, email: "" })) // Clear error if field is empty
+        return
+      }
 
-  // Handle input changes
+      setEmailValidationStatus("validating")
+      const timer = setTimeout(() => {
+        const error = validateField("email", emailValue)
+        setErrors((prev) => ({ ...prev, email: error }))
+        setEmailValidationStatus(error ? "invalid" : "valid")
+      }, 500) // Debounce time
+      return () => clearTimeout(timer)
+    },
+    [], // No dependencies needed as validateField is pure
+  )
+
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
+    setFormData((prev) => ({ ...prev, [name]: value }))
 
-    // Validate field if it has been touched
+    // Only validate if the field has been touched
     if (touched[name]) {
-      const error = validateField(name, value)
-      setErrors((prev) => ({
-        ...prev,
-        [name]: error,
-      }))
+      if (name === "email") {
+        validateEmailRealtime(value)
+      } else {
+        const error = validateField(name, value)
+        setErrors((prev) => ({ ...prev, [name]: error }))
+      }
     }
   }
 
-  // Handle input blur (when user leaves the field)
   const handleBlur = (e) => {
     const { name, value } = e.target
-    setTouched((prev) => ({
-      ...prev,
-      [name]: true,
-    }))
+    setTouched((prev) => ({ ...prev, [name]: true }))
 
-    const error = validateField(name, value)
-    setErrors((prev) => ({
-      ...prev,
-      [name]: error,
-    }))
+    if (name === "email") {
+      validateEmailRealtime(value) // Trigger validation on blur for email
+    } else {
+      const error = validateField(name, value)
+      setErrors((prev) => ({ ...prev, [name]: error }))
+    }
   }
 
-  // Check if form is valid
-  const isFormValid = () => {
-    const { name, email, subject, message } = formData
-    return (
-      name.trim() !== "" &&
-      email.trim() !== "" &&
-      emailRegex.test(email) &&
-      subject.trim() !== "" &&
-      message.trim() !== "" &&
-      Object.values(errors).every((error) => error === "")
-    )
-  }
-
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setNotification(null) // Clear previous notification
 
-    // Validate all fields
+    // Validate all fields on submit
     const newErrors = {}
     Object.keys(formData).forEach((key) => {
       const error = validateField(key, formData[key])
       if (error) newErrors[key] = error
     })
-
     setErrors(newErrors)
     setTouched({
       name: true,
@@ -99,22 +94,41 @@ const ContactSection = () => {
       message: true,
     })
 
-    // If no errors, submit the form
-    if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted:", formData)
-      // Here you would typically send the data to your backend
-      alert("Message sent successfully!")
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-      setTouched({})
-      setErrors({})
+    // Check if the form is valid after setting all errors and touched states
+    if (Object.keys(newErrors).length === 0 && isFormValid(formData, newErrors) && csrfToken) {
+      try {
+        // In a real application, this would be your API endpoint for sending emails
+        const response = await axios.post(
+          "/api/send-email", // This would be your actual API route
+          formData,
+          {
+            headers: {
+              "CSRF-Token": csrfToken,
+            },
+          },
+        )
+        setNotification({ type: "success", message: response.data.message || "Message sent successfully!" })
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+        setErrors({})
+        setTouched({})
+        setEmailValidationStatus("idle")
+      } catch (error) {
+        console.error("Error sending email:", error)
+        setNotification({
+          type: "error",
+          message: error.response?.data?.message || "Failed to send message. Please try again.",
+        })
+      }
+    } else {
+      // If form is not valid on submission, show a general error or rely on inline errors
+      setNotification({ type: "error", message: "Please correct the errors in the form." })
     }
+    setIsSubmitting(false)
   }
 
   return (
@@ -129,7 +143,6 @@ const ContactSection = () => {
             and let's create something impactful together.
           </p>
         </div>
-
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Info */}
           <div className="space-y-6">
@@ -152,7 +165,6 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
-
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -175,7 +187,7 @@ const ContactSection = () => {
                     <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.name}</p>
                   )}
                 </div>
-                <div>
+                <div className="relative">
                   <input
                     type="email"
                     name="email"
@@ -189,12 +201,20 @@ const ContactSection = () => {
                         : "border-gray-300 dark:border-gray-600"
                     }`}
                   />
+                  {emailValidationStatus === "validating" && (
+                    <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500 animate-spin" />
+                  )}
+                  {emailValidationStatus === "valid" && (
+                    <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-500" />
+                  )}
+                  {emailValidationStatus === "invalid" && (
+                    <XCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-red-500" />
+                  )}
                   {errors.email && touched.email && (
                     <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.email}</p>
                   )}
                 </div>
               </div>
-
               <div>
                 <input
                   type="text"
@@ -213,7 +233,6 @@ const ContactSection = () => {
                   <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.subject}</p>
                 )}
               </div>
-
               <div>
                 <textarea
                   name="message"
@@ -232,22 +251,28 @@ const ContactSection = () => {
                   <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.message}</p>
                 )}
               </div>
-
               <button
                 type="submit"
-                disabled={!isFormValid()}
+                disabled={!isFormValid(formData, errors) || isSubmitting}
                 className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 ${
-                  isFormValid()
+                  isFormValid(formData, errors) && !isSubmitting
                     ? "bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105 shadow-lg"
                     : "bg-gray-400 dark:bg-gray-600 text-gray-200 cursor-not-allowed opacity-60"
                 }`}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
         </div>
       </div>
+      {notification && (
+        <ModalNotification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
     </section>
   )
 }

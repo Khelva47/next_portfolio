@@ -1,4 +1,3 @@
-// src/middleware/csrf.js
 import { NextResponse } from "next/server"
 import csurf from "csurf"
 
@@ -7,7 +6,7 @@ export function csrfMiddleware(req, res) {
     cookie: {
       key: "_csrf",
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+      secure: process.env.NODE_ENV === "production", 
       sameSite: "strict",
     },
   })
