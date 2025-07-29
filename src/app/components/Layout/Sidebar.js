@@ -24,14 +24,6 @@ const Sidebar = ({
         <X className="w-6 h-6" />
       </button>
 
-      {/* Dark mode toggle for desktop */}
-      <button
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className="hidden lg:block absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-      >
-        {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-      </button>
-
       {/* Profile Section */}
       <div className="text-center p-6 border-b border-gray-300 dark:border-gray-700">
         <img

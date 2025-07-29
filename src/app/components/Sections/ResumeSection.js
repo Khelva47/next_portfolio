@@ -61,7 +61,6 @@ const ResumeSection = ({ resumeData }) => {
           {/* Right Column */}
           <div>
             {/* Professional Experience - Continuation */}
-            <h3 className="text-2xl font-bold mb-6 lg:invisible">Professional Experience</h3>
             <div className="space-y-8">
               {resumeData.experience.slice(2).map((exp, index) => (
                 <div key={index + 2} className="relative pl-8 border-l-2 border-blue-500">
