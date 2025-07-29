@@ -26,9 +26,7 @@ const TestimonialsSection = ({ testimonialsData }) => {
           <h2 className="text-4xl font-bold mb-4">Testimonials</h2>
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.
+            Here’s what clients, collaborators, and mentors have to say about my work. I take pride in building solutions that solve real problems, and I value relationships grounded in trust, communication, and technical excellence.
           </p>
         </div>
 

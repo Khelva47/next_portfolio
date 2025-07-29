@@ -108,40 +108,23 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   const testimonialsData = [
     {
       id: 1,
-      name: "Saul Goodman",
+      name: "Miss Blessing Douglas",
       role: "Ceo & Founder",
-      company: "Lawson & Associates",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      company: "BOMA Group",
+      image: "",
       text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
       rating: 5,
     },
     {
       id: 2,
-      name: "Sara Wilsson",
-      role: "Designer",
-      company: "Creative Studio",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      name: "Micheal Chikaonda",
+      role: "Full Stack Developer & Network Engineer",
+      company: "iTech360Systems",
+      image: "",
       text: "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.",
       rating: 5,
     },
-    {
-      id: 3,
-      name: "Jena Karlis",
-      role: "Store Owner",
-      company: "Fashion Boutique",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-      text: "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.",
-      rating: 5,
-    },
-    {
-      id: 4,
-      name: "Matt Brandon",
-      role: "Freelancer",
-      company: "Independent",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-      text: "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.",
-      rating: 5,
-    },
+
   ]
 
   const resumeData = {
