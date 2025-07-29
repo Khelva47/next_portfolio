@@ -61,8 +61,7 @@ const ServicesSection = () => {
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed max-w-4xl">
             With a background in education and software engineering, I offer full-stack development services, mobile
-            apps, and strategic digital solutions. Whether you need a performant product, expert tech advice, or strong
-            project execution, I bring ideas to life with precision and purpose.
+            apps, and strategic digital solutions.
           </p>
         </div>
 

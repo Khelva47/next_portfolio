@@ -10,8 +10,7 @@ const ResumeSection = ({ resumeData }) => {
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             I'm a dedicated Full-Stack Developer and Educator with a passion for building scalable applications and
             sharing knowledge. With experience in both the classroom and the tech industry, I've contributed to
-            real-world projects across web and mobile platforms. My journey blends hands-on coding with a strong
-            foundation in education, aiming to create impactful digital solutions for diverse communities.
+            real-world projects across web and mobile platforms.
           </p>
         </div>
 
