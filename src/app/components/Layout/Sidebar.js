@@ -20,8 +20,19 @@ const Sidebar = ({
       } lg:translate-x-0`}
     >
       {/* Close button for mobile */}
-      <button onClick={() => setIsMobileMenuOpen(false)} className="lg:hidden absolute top-4 right-4 text-gray-900 dark:text-white p-2">
+      <button
+        onClick={() => setIsMobileMenuOpen(false)}
+        className="lg:hidden absolute top-4 right-4 text-gray-900 dark:text-white p-2"
+      >
         <X className="w-6 h-6" />
+      </button>
+
+      {/* Dark mode toggle for desktop */}
+      <button
+        onClick={() => setIsDarkMode(!isDarkMode)}
+        className="hidden lg:block absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+      >
+        {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
       </button>
 
       {/* Profile Section */}
