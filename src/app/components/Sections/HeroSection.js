@@ -10,13 +10,13 @@ const HeroSection = ({ profileData }) => {
       id="home"
       className="h-screen flex items-center justify-center text-white relative"
       style={{
-        backgroundImage: `url(/images/25854.jpg)`, 
+        backgroundImage: `url('../images/sl_031420_28950_10.jpg')`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="absolute inset-0  bg-opacity-50" />
       <div className="relative z-10 text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">{profileData.name}</h1>
         <p className="text-xl md:text-2xl animate-fade-in-delay">
