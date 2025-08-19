@@ -38,8 +38,8 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     image: "/images/Myphoto.jpg",
     socialLinks: [
       { icon: Github, url: "https://github.com/Khelva47" },
-      { icon: Facebook, url: "https://facebook.com" },
-      { icon: Linkedin, url: "https://linkedin.com" },
+      { icon: Facebook, url: "https://www.facebook.com/share/1A26dt4iay/" },
+      { icon: Linkedin, url: "https://www.linkedin.com/in/kelvin-mponda-902b902b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
     ],
   }
 
