@@ -2,7 +2,7 @@
 import { useTypewriter } from "../../hooks/useTypewriter"
 
 const HeroSection = ({ profileData }) => {
-  const roles = ["a Full-Stack Developer", "a Designer", "an Educator", "a Data Scientist", "a Python Developer"]
+  const roles = ["a Full-Stack Developer", "a Software Developer", "an Educator", "a Data Scientist", "a Python Developer"]
   const typedText = useTypewriter(roles, 150, 100, 2000)
 
   return (

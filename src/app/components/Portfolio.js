@@ -98,11 +98,11 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
 
   const skillsData = [
     { name: "PYTHON", percentage: 100 },
-    { name: "JAVASCRIPT", percentage: 90 },
-    { name: "FLUTTER", percentage: 85 },
-    { name: "TYPESCRIPT", percentage: 80 },
     { name: "WORDPRESS", percentage: 95 },
-    { name: "PHOTOSHOP", percentage: 75 },
+    { name: "JAVASCRIPT", percentage: 95 },
+    { name: "FLUTTER", percentage: 90 },
+    { name: "JAVA", percentage: 85 },
+    { name: "TYPESCRIPT", percentage: 80 },
   ]
 
   const testimonialsData = [
@@ -121,7 +121,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       role: "Full Stack Developer & Network Engineer",
       company: "iTech360Systems",
       image: "",
-      text: "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.",
+      text: "Working side by side with Kelvin Mponda, I’ve come to rely on his deep technical skills and unwavering commitment. He’s an invaluable teammate in our computer systems work.",
       rating: 5,
     },
 
