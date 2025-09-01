@@ -106,15 +106,15 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   ]
 
   const testimonialsData = [
-    {
-      id: 1,
-      name: "Miss Blessing Douglas",
-      role: "Ceo & Founder",
-      company: "BOMA Group",
-      image: "",
-      text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
-      rating: 5,
-    },
+    // {
+    //   id: 1,
+    //   name: "Miss Blessing Douglas",
+    //   role: "Ceo & Founder",
+    //   company: "BOMA Group",
+    //   image: "",
+    //   text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
+    //   rating: 5,
+    // },
     {
       id: 2,
       name: "Micheal Chikaonda",
