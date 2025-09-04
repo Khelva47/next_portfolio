@@ -1,5 +1,7 @@
 "use client"
-import { useState } from "react"
+
+import { useState, useMemo } from "react"
+import Image from "next/image"
 import { ExternalLink } from "lucide-react"
 
 const PortfolioSection = () => {
@@ -12,28 +14,28 @@ const PortfolioSection = () => {
         id: 1,
         title: "Portfolio",
         category: "Web Design",
-        image: "/images/portfolio.jpg",
+        image: "/images/sl_031420_28950_10.jpg", // ✅ works from public/
         link: "https://kelvin-mponda.vercel.app/",
       },
       {
         id: 2,
         title: "BPFAA",
         category: "Web Design",
-        image: "/images/Boma.jpg",
+        image: "/images/Boma.jpg", // ✅ works from public/
         link: "https://nominations.bomaprize.org",
       },
       {
         id: 3,
         title: "Project 3",
         category: "UI/UX",
-        image: "/placeholder.svg?height=300&width=400&text=Portfolio+3",
+        image: "/images/Boma.jpg",
         link: "#",
       },
       {
         id: 4,
         title: "DriveMe",
         category: "Mobile App",
-        image: "/placeholder.svg?height=300&width=400&text=Portfolio+4",
+        image: "/images/Boma.jpg",
         link: "#",
         inProgress: true,
       },
@@ -41,7 +43,7 @@ const PortfolioSection = () => {
         id: 5,
         title: "Alikonko",
         category: "Web Design",
-        image: "/placeholder.svg?height=300&width=400&text=Portfolio+5",
+        image: "/images/Boma.jpg",
         link: "#",
         inProgress: true,
       },
@@ -49,16 +51,17 @@ const PortfolioSection = () => {
         id: 6,
         title: "Project 6",
         category: "UI/UX",
-        image: "/placeholder.svg?height=300&width=400&text=Portfolio+6",
+        image: "/images/Boma.jpg",
         link: "#",
       },
     ],
   }
 
-  const filteredProjects =
-    activeFilter === "All"
+  const filteredProjects = useMemo(() => {
+    return activeFilter === "All"
       ? portfolioData.projects
-      : portfolioData.projects.filter((project) => project.category === activeFilter)
+      : portfolioData.projects.filter((p) => p.category === activeFilter)
+  }, [activeFilter, portfolioData.projects])
 
   return (
     <section id="portfolio" className="py-20 px-8 bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
@@ -67,7 +70,8 @@ const PortfolioSection = () => {
           <h2 className="text-4xl font-bold mb-4">Portfolio</h2>
           <div className="w-12 h-1 bg-blue-500 mb-6" />
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-            Explore a collection of projects that showcase my journey as a full-stack developer and educator. From intuitive mobile and web apps, to robust backend systems.
+            Explore a collection of projects that showcase my journey as a full-stack developer and educator.
+            From intuitive mobile and web apps, to robust backend systems.
           </p>
         </div>
 
@@ -95,18 +99,20 @@ const PortfolioSection = () => {
               key={project.id}
               className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <img
-                src={project.image || "/placeholder.svg?height=300&width=400&text=No+Image"}
-                alt={project.title}
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  e.target.src = "/placeholder.svg?height=300&width=400&text=No+Image"
-                }}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+              <div className="relative w-full h-64 overflow-hidden">
+  <Image
+    src={project.image}
+    alt={project.title}
+    fill
+    className="object-cover"
+  />
+</div>
+
+              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center text-white px-6">
                   <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                   <p className="text-gray-200 mb-6 text-sm uppercase tracking-wider">{project.category}</p>
+
                   {project.inProgress ? (
                     <span className="inline-flex items-center gap-2 bg-gray-500 text-white px-6 py-3 rounded-lg font-medium shadow-lg cursor-not-allowed">
                       In Progress
@@ -115,6 +121,8 @@ const PortfolioSection = () => {
                     <a
                       href={project.link}
                       className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-lg"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <ExternalLink className="w-4 h-4" />
                       View Project
