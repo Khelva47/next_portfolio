@@ -8,8 +8,8 @@ const ServicesSection = () => {
       icon: Code,
       title: "Full-Stack Web Development",
       description:
-        "Building responsive, performant, and scalable web applications using modern frameworks like React, Next.js, FastAPI, and NestJS.",
-      link: "#",
+        "Building responsive, performant, and scalable web applications using modern frameworks like React, Next.js, FastAPI, and Node.js.",
+  
     },
     {
       id: 2,
@@ -17,15 +17,13 @@ const ServicesSection = () => {
       title: "Mobile App Development",
       description:
         "Creating cross-platform mobile applications with Flutter, focusing on sleek UI, smooth UX, and robust backend integration.",
-      link: "#",
     },
     {
       id: 3,
       icon: GraduationCap,
       title: "Software Education & Training",
       description:
-        "Delivering engaging computer science lessons and hands-on coding sessions to empower students and junior developers.",
-      link: "#",
+        "Delivering engaging ICT and computer science lessons and hands-on coding sessions to empower students and junior developers.",
     },
     {
       id: 4,
@@ -33,7 +31,6 @@ const ServicesSection = () => {
       title: "API Design & Integration",
       description:
         "Designing and developing secure RESTful APIs and integrating third-party services for seamless digital experiences.",
-      link: "#",
     },
     {
       id: 5,
@@ -41,7 +38,6 @@ const ServicesSection = () => {
       title: "IT Consulting",
       description:
         "Offering expert guidance on software architecture, technology choices, and digital transformation to help businesses scale and innovate efficiently.",
-      link: "#",
     },
     {
       id: 6,
@@ -49,7 +45,6 @@ const ServicesSection = () => {
       title: "Project Management",
       description:
         "Overseeing project lifecycles, coordinating cross-functional teams, and ensuring timely delivery of tech solutions with clarity and quality.",
-      link: "#",
     },
   ]
 

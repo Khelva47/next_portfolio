@@ -139,12 +139,23 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     ],
     experience: [
       {
+        title: "ICT & COMPUTER SCIENCE TEACHER",
+        period: "2025 - Present",
+        company: "Sir Harry's Johnston Internation School, Zomba",
+        responsibilities: [
+          "Preparing and delivering ICT & Computer Science lessons to KS3 and KS4 Students.",
+          "Developing schemes of work from the IGCSE syllabus.", 
+          "Assessing student performance and behavior.",
+          "Reporting academic progress and classroom activities to the Secondary lead."
+        ],
+      },
+      {
         title: "WEBSITE DEVELOPER (PART-TIME)",
         period: "2025 - Present",
         company: "BOMA Group, USA",
         responsibilities: [
-          "Develop and maintain websites for the Boma Prize for Africa and Boma Consult.",
-          "Enhance user experience through responsive design and performance optimization.",
+          "Developing and maintaining websites for the Boma Prize for Africa and Boma Consult.",
+          "Enhancing user experience through responsive design and performance optimization.",
         ],
       },
       {
@@ -152,9 +163,9 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
         period: "2025 - Present",
         company: "iTech360Systems, Zomba",
         responsibilities: [
-          "Database designing, maintainance and optimazition",
+          "Database designing, maintenance and optimization",
           "Developing UIs and implement frontend features using modern frameworks.",
-          "Collaborating with collegues to deliver scalable software solutions.",
+          "Collaborating with colleagues to deliver scalable software solutions.",
         ],
       },
       {
