@@ -89,7 +89,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       icon: "headphones",
     },
     {
-      number: 6,
+      number: 8,
       label: "Collaborators",
       sublabel: "Developers, designers & mentors",
       icon: "users",

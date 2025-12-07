@@ -14,23 +14,22 @@ const PortfolioSection = () => {
         id: 1,
         title: "Portfolio",
         category: "Web Design",
-        image: "/images/sl_031420_28950_10.jpg", // ✅ works from public/
+        image: "/images/sl_031420_28950_10.jpg",
         link: "https://kelvin-mponda.vercel.app/",
       },
       {
         id: 2,
         title: "BPFAA",
         category: "Web Design",
-        image: "/images/Boma.jpg", // ✅ works from public/
+        image: "/images/Boma.jpg", 
         link: "https://nominations.bomaprize.org",
       },
       {
         id: 3,
-        title: "Portfolio",
-        category: "UI/UX",
-        image: "/images/.jpg",
-        link: "",
-        inProgress: true,
+        title: "BusYanga",
+        category: "Web Design",
+        image: "/images/busyanga2.jpg",
+        link: "https://www.busyanga.site/landing",
       },
       {
         id: 4,
