@@ -83,7 +83,7 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       icon: "folder-open",
     },
     {
-      number: 1000,
+      number: 2000,
       label: "Hours of Experience",
       sublabel: "Coding, consulting & mentoring",
       icon: "headphones",
@@ -115,8 +115,17 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     //   text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
     //   rating: 5,
     // },
+    // {
+    //   id: 2,
+    //   name: "Miss Blessing Douglas",
+    //   role: "Ceo & Founder",
+    //   company: "BOMA Group",
+    //   image: "",
+    //   text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
+    //   rating: 5,
+    // },
     {
-      id: 2,
+      id: 3,
       name: "Micheal Chikaonda",
       role: "Full Stack Developer & Network Engineer",
       company: "iTech360Systems",
@@ -138,9 +147,29 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       },
     ],
     experience: [
+      // {
+      //   title: "SOFTWARE ENGINEER",
+      //   period: "2025 - Present",
+      //   company: "iTech360Systems, Zomba",
+      //   responsibilities: [
+      //     "Database designing, maintenance and optimization",
+      //     "Developing UIs and implement frontend features using modern frameworks.",
+      //     "Collaborating with colleagues to deliver scalable software solutions.",
+      //   ],
+      // },
+      {
+        title: "SOFTWARE ENGINEER",
+        period: "2025 - Present",
+        company: "iTech360Systems, Zomba",
+        responsibilities: [
+          "Database designing, maintenance and optimization",
+          "Developing UIs and implement frontend features using modern frameworks.",
+          "Collaborating with colleagues to deliver scalable software solutions.",
+        ],
+      },
       {
         title: "ICT & COMPUTER SCIENCE TEACHER",
-        period: "2025 - Present",
+        period: "2025 - 2026",
         company: "Sir Harry's Johnston Internation School, Zomba",
         responsibilities: [
           "Preparing and delivering ICT & Computer Science lessons to KS3 and KS4 Students.",
@@ -151,21 +180,11 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
       },
       {
         title: "WEBSITE DEVELOPER (PART-TIME)",
-        period: "2025 - Present",
+        period: "2025 - 2026",
         company: "BOMA Group, USA",
         responsibilities: [
           "Developing and maintaining websites for the Boma Prize for Africa and Boma Consult.",
           "Enhancing user experience through responsive design and performance optimization.",
-        ],
-      },
-      {
-        title: "SOFTWARE ENGINEER",
-        period: "2025 - Present",
-        company: "iTech360Systems, Zomba",
-        responsibilities: [
-          "Database designing, maintenance and optimization",
-          "Developing UIs and implement frontend features using modern frameworks.",
-          "Collaborating with colleagues to deliver scalable software solutions.",
         ],
       },
       {
