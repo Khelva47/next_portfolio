@@ -140,23 +140,24 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
     education: [
       {
         degree: "BACHELOR OF EDUCATION, COMPUTER SCIENCE",
-        period: "2021 - Present",
+        period: "2021 - 2025",
         institution: "University of Malawi, Chancellor College",
         description:
           "Currently pursuing a degree in Computer Science Education with a strong focus on software development, programming, and teaching methodologies. This program has equipped me with both technical and pedagogical skills, enabling me to build real-world applications and contribute meaningfully as an educator and developer.",
       },
     ],
     experience: [
-      // {
-      //   title: "SOFTWARE ENGINEER",
-      //   period: "2025 - Present",
-      //   company: "iTech360Systems, Zomba",
-      //   responsibilities: [
-      //     "Database designing, maintenance and optimization",
-      //     "Developing UIs and implement frontend features using modern frameworks.",
-      //     "Collaborating with colleagues to deliver scalable software solutions.",
-      //   ],
-      // },
+      {
+        title: "IT ADMINISTRATOR",
+        period: "2026 - Present",
+        company: "Bluewaves Energies Ltd, Lilongwe",
+        responsibilities: [
+          "Systems and Stock Control Management.",
+          "Systems Management and Documentation Oversight.",
+          "Software Oversight and Optimization.",
+          "Website and Digital Presence Management.",
+        ],
+      },
       {
         title: "SOFTWARE ENGINEER",
         period: "2025 - Present",
