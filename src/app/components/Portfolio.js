@@ -106,24 +106,24 @@ const Portfolio = ({ isDarkMode, setIsDarkMode }) => {
   ]
 
   const testimonialsData = [
-    // {
-    //   id: 1,
-    //   name: "Miss Blessing Douglas",
-    //   role: "Ceo & Founder",
-    //   company: "BOMA Group",
-    //   image: "",
-    //   text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
-    //   rating: 5,
-    // },
-    // {
-    //   id: 2,
-    //   name: "Miss Blessing Douglas",
-    //   role: "Ceo & Founder",
-    //   company: "BOMA Group",
-    //   image: "",
-    //   text: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
-    //   rating: 5,
-    // },
+    {
+      id: 1,
+      name: "Miss Blessing Douglas",
+      role: "Ceo & Founder",
+      company: "BOMA Group of Companies",
+      image: "",
+      text: "Kelvin was a valuable member of the team, and his technical competence, work ethic, and willingness to learn made him a pleasure to work with. He was able to work independently, respond positively to feedback, and meet deadlines realibly.",
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "Mr. Patrick Nguluwe",
+      role: "ICT Teacher",
+      company: "Sir Harry's International School, Zomba",
+      image: "",
+      text: "Mr. Mponda demonstrates a strong competence in teaching Computer Science, ICT and general computing knowledge to learners varying abilities. He is familiar with multiple programming concepts and applications, and he effectively supports learners in developing problem-solving skills, logical thinking and practical coding skills",
+      rating: 5,
+    },
     {
       id: 3,
       name: "Micheal Chikaonda",
