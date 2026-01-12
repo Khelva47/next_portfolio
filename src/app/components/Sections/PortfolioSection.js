@@ -54,6 +54,14 @@ const PortfolioSection = () => {
         image: "/images/iTech.jpg",
         link: "https://itech360systems.it.com/",
       },
+
+      {
+        id: 7,
+        title: "BusYanga",
+        category: "Web Design",
+        image: "/placeholder.svg",
+        link: "https://www.busyanga.site/landing",
+      },
     ],
   }
 
